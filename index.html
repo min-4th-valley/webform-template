@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Webform Registration</title>
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+<link href="style.css" rel="stylesheet">
+                                
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script type='text/javascript'>$(document).ready(function(){
+
+var current_fs, next_fs, previous_fs; //fieldsets
+var opacity;
+var current = 1;
+var steps = $("fieldset").length;
+
+setProgressBar(current);
+
+$(".next").click(function(){
+
+current_fs = $(this).parent();
+next_fs = $(this).parent().next();
+
+//Add Class Active
+$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+//show the next fieldset
+next_fs.show();
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+next_fs.css({'opacity': opacity});
+},
+duration: 500
+});
+setProgressBar(++current);
+});
+
+$(".previous").click(function(){
+
+current_fs = $(this).parent();
+previous_fs = $(this).parent().prev();
+
+//Remove class active
+$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+//show the previous fieldset
+previous_fs.show();
+
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+previous_fs.css({'opacity': opacity});
+},
+duration: 500
+});
+setProgressBar(--current);
+});
+
+function setProgressBar(curStep){
+var percent = parseFloat(100 / steps) * curStep;
+percent = percent.toFixed();
+$(".progress-bar")
+.css("width",percent+"%")
+}
+
+$(".submit").click(function(){
+return false;
+})
+
+});</script>
+
+</head>
+<body oncontextmenu='return false' class='snippet-body'>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">日本でせいしゃいんで働けます！</h2>
+                <p>Great chance to work as a full-time employee in Japan!</p>
+                <br>
+                <div class="alert alert-warning" role="alert">
+                    <p><h2 class="alert-heading">1,100</h2> Jobs available!</p>
+                    <p>Register to apply now!</p>
+                    <!-- <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+                </div>
+                <form id="msform">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active" id="account"><strong>First Step</strong></li>
+                        <li id="personal"><strong>About You</strong></li>
+                        <li id="payment"><strong>Personal</strong></li>
+                        <li id="confirm"><strong>Complete</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> <br> <!-- fieldsets -->
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">First Step:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 1 - 4</h2>
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label for="candidateType">Are you a Student or TITP?</label>
+                                <select class="form-control" id="candidateType">
+                                  <option>Student</option>
+                                  <option>TITP</option>
+                                  <option>Other</option>
+                                </select>
+                            </div>
+                            <!-- <label class="fieldlabels">Current Residence: *</label> <input type="text" name="uname" placeholder="UserName" />  -->
+                            <div class="form-group">
+                                <label for="currentResidence">現在住んでいる場所</label>
+                                <select class="form-control" id="currentResidence">
+                                  <option>Japan</option>
+                                  <option>Overseas</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">About You:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 2 - 4</h2>
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label for="JLPT">日本語能力(JLPT) *</label>
+                                <select class="form-control" id="JLPT" placeholder="">
+                                  <option>なし</option>
+                                  <option>N5</option>
+                                  <option>N4</option>
+                                  <option>N3</option>
+                                  <option>N2</option>
+                                  <option>N1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="JLPT">現在の日本在留資格 *</label>
+                                <select class="form-control" id="visaType" placeholder="">
+                                  <option>留学(Studying)</option>
+                                  <option>特定技能(Specified Skill Worker)</option>
+                                  <option>技人国(EHI)</option>
+                                  <option>技能実習(TITP)</option>
+                                  <option>その他(others)</option>
+                                </select>
+                            </div>
+                            <!--IF candidate is a  留学生 display this-->
+                            <div class="form-group">
+                                <label for="school">日本で通っている学校 * </label>
+                                <select class="form-control" id="school" placeholder="">
+                                  <option>高等学校</option>
+                                  <option>日本語学校</option>
+                                  <option>専門学校</option>
+                                  <option>短期大学</option>
+                                  <option>大学</option>
+                                  <option>大学院</option>
+                                  <option>学校へは通っていない</option>
+                                </select>
+                            </div>
+                            <!--IF candidate is a  留学生 display this-->
+                            <div class="form-group">
+                                <label for="grade">学年 * </label>
+                                <select class="form-control" id="grade" placeholder="">
+                                  <option>1年生 / 大学</option>
+                                  <option>2年生 / 大学</option>
+                                  <option>3年生 / 大学</option>
+                                  <option>4年生 / 大学</option>
+                                  <option>1年生 / 3年制学校</option>
+                                  <option>2年生 / 3年制学校</option>
+                                  <option>3年生 / 3年制学校</option>
+                                  <option>1年生 / 2年制学校</option>
+                                  <option>2年生 / 2年制学校</option>
+                                  <option>1年制学校</option>
+                                </select>
+                            </div>
+                            <!--IF candidate is a  TITP display this-->
+                            <div class="form-group">
+                                <label for="TITPType">TITP職種 * </label>
+                                <select class="form-control" id="TITPType" placeholder="">
+                                  <option>耕種農業</option>
+                                  <option>畜産農業</option>
+                                  <option>漁船漁業</option>
+                                  <option>養殖業</option>
+                                  <option>さく井</option>
+                                  <option>建築板金</option>
+                                  <option>More....</option>
+                                </select>
+                            </div>
+                            <!--IF candidate is a  TITP display this-->
+                            <div class="form-group">
+                                <label for="TITPGrade">日本で働いて何年目ですか？ * </label>
+                                <select class="form-control" id="TITPGrade" placeholder="">
+                                  <option>1年 (TITP Grade 1)</option>
+                                  <option>2年 (TITP Grade 2)</option>
+                                  <option>3年 (TITP Grade 2)</option>
+                                  <option>4年 (TITP Grade 3)</option>
+                                  <option>5年 (TITP Grade 3)</option>
+                                </select>
+                            </div>
+                            <!--SSW skill test-->
+                            <label for="TITPGrade">特定技能試験 (SSW Skill Test) * </label>
+                            
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="passed">
+                                <label class="custom-control-label" for="passed">合格しました(Already got)</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Applied">
+                                <label class="custom-control-label" for="Applied">申し込みしました(Applied)</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Interested">
+                                <label class="custom-control-label" for="Interested">興味あります(Interested in applying)</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="NotInterested">
+                                <label class="custom-control-label" for="NotInterested">興味ない(Not interested)</label>
+                            </div>
+                            <br>
+                            <!--希望業界-->
+                            <div class="form-group">
+                                <label for="TITPGrade">希望業界 * </label>
+                                <select class="form-control" id="preferredIndustry" placeholder="">
+                                  <option>介護業</option>
+                                  <option>ビルクリーニング業</option>
+                                  <option>素形材産業</option>
+                                  <option>産業機械製造業</option>
+                                  <option>電気・電子情報関連産業</option>
+                                  <option>More...</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Personal Info</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 3 - 4</h2>
+                                </div>
+                            </div> 
+                            <label class="fieldlabels">Upload Your Photo:</label> <input type="file" name="pic" accept="image/*"> 
+                            <label class="fieldlabels">First Name: (Eng)*</label> <input type="text" name="fname" placeholder="First Name" /> 
+                            <label class="fieldlabels">Last Name: (Eng)*</label> <input type="text" name="lname" placeholder="Last Name" /> 
+                            <label class="fieldlabels">First Name: (Furigana)</label> <input type="text" name="fname" placeholder="フリガナ" /> 
+                            <label class="fieldlabels">Last Name: (Furigana)</label> <input type="text" name="lname" placeholder="フリガナ" /> 
+                            <label class="fieldlabels">Contact No.: *</label> <input type="text" name="phno" placeholder="Contact No." />
+                            <!--Nationality-->
+                            <div class="form-group">
+                                <label for="Nationality">Nationality * </label>
+                                <select class="form-control" id="Nationality" placeholder="">
+                                  <option>All Country list</option>
+                                  <option>Vietnam</option>
+                                  <option>Myanmar</option>
+                                  <option>Nepal</option>
+                                  
+                                </select>
+                            </div>
+                            <!--Gender-->
+                            <div class="form-group">
+                                <label for="Gender">Gender * </label>
+                                <select class="form-control" id="Gender" placeholder="">
+                                  <option>Male</option>
+                                  <option>Female</option>
+                                </select>
+                            </div>
+                            <!--Birthdate-->
+                            <div class="form-group"> 
+                                <!-- Date input -->
+                                <label class="control-label" for="date">Birth Date</label>
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                            </div>
+
+                            <label class="fieldlabels">Email: *</label> <input type="email" name="email" placeholder="Email Id" />
+                            <!--SNS-->
+                            <div class="d-inline form-group">
+                                <label for="SNSID">SNS ID * </label>
+                                <select class="form-control" id="SNSID" placeholder="">
+                                  <option>LineID</option>
+                                  <option>Messenger ID</option>
+                                  <option>Wechat</option>
+                                  <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="d-inline form-group">
+                                <!-- <label for="exampleInputEmail1">Email address</label> -->
+                                <input type="text" class="form-control" id="inputSNSID" aria-describedby="emailHelp" placeholder="Enter SNS ID">
+                            </div>
+
+
+                        </div> 
+                        <input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Complete:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 4 - 4</h2>
+                                </div>
+                            </div> <br><br>
+                            <h2 class="blue-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img src="https://static.thenounproject.com/png/2592125-200.png" class="fit-image"> </div>
+                            </div> <br><br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5 class="blue-text text-center">You Have Successfully Signed Up</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+                            </body>
+                        </html>
