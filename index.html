@@ -17,7 +17,21 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-<script type='text/javascript'>$(document).ready(function(){
+<script type='text/javascript'>
+
+//Show hidden field script
+function yesnoCheck(that) {
+    if (that.value == "other") {
+  // alert("check");
+        document.getElementById("ifYes").style.display = "block";
+    } else {
+        document.getElementById("ifYes").style.display = "none";
+    }
+}
+//end 
+
+//scripts for this template
+$(document).ready(function(){
 
 var current_fs, next_fs, previous_fs; //fieldsets
 var opacity;
@@ -100,11 +114,16 @@ return false;
     <div class="row justify-content-center">
         <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                
                 <h2 id="heading">日本でせいしゃいんで働けます！</h2>
                 <p>Great chance to work as a full-time employee in Japan!</p>
-                <br>
+                
                 <div class="alert alert-warning" role="alert">
-                    <p><h2 class="alert-heading">1,100</h2> Jobs available!</p>
+                  <!--start image-->
+                  <img src="https://workers.connectiu.com/static/img/banner-bg-crop.jpg" class="img-fluid" alt="Responsive image">
+                  <br>
+                  <!--end image-->
+                    <p><h1 class="alert-heading">1,100</h1> Jobs available!</p>
                     <p>Register to apply now!</p>
                     <!-- <hr>
                     <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
@@ -130,15 +149,23 @@ return false;
                                     <h2 class="steps">Step 1 - 4</h2>
                                 </div>
                             </div> 
+                            <!--start hide fields-->
                             <div class="form-group">
-                                <label for="candidateType">Are you a Student or TITP?</label>
-                                <select class="form-control" id="candidateType">
-                                  <option>Student</option>
-                                  <option>TITP</option>
-                                  <option>Other</option>
-                                </select>
+                              <label for="testcheck">Are you a Student or TITP?</label>
+                              <select class="form-control" id="testcheck" onchange="yesnoCheck(this);">
+                                  <option value="">Student</option>
+                                  <option value="lada">TITP</option>
+                                  <option value="other">Other</option>
+                              </select>
+
+                              <div id="ifYes" style="display: none;">
+                                  <label for="car">Other</label> <input type="text" id="car" name="car" /><br />
+                              </div>
+                              
                             </div>
-                            <!-- <label class="fieldlabels">Current Residence: *</label> <input type="text" name="uname" placeholder="UserName" />  -->
+                            <!--end hide fields-->
+
+                            <!--start current residence-->
                             <div class="form-group">
                                 <label for="currentResidence">現在住んでいる場所</label>
                                 <select class="form-control" id="currentResidence">
@@ -146,6 +173,7 @@ return false;
                                   <option>Overseas</option>
                                 </select>
                             </div>
+
                         </div> 
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
@@ -182,7 +210,7 @@ return false;
                             </div>
                             <!--IF candidate is a  留学生 display this-->
                             <div class="form-group">
-                                <label for="school">日本で通っている学校 * </label>
+                                <label for="school">日本で通っている学校 (student only)* </label>
                                 <select class="form-control" id="school" placeholder="">
                                   <option>高等学校</option>
                                   <option>日本語学校</option>
@@ -195,7 +223,7 @@ return false;
                             </div>
                             <!--IF candidate is a  留学生 display this-->
                             <div class="form-group">
-                                <label for="grade">学年 * </label>
+                                <label for="grade">学年 (student only) * </label>
                                 <select class="form-control" id="grade" placeholder="">
                                   <option>1年生 / 大学</option>
                                   <option>2年生 / 大学</option>
@@ -211,7 +239,7 @@ return false;
                             </div>
                             <!--IF candidate is a  TITP display this-->
                             <div class="form-group">
-                                <label for="TITPType">TITP職種 * </label>
+                                <label for="TITPType">TITP職種 (TITP only) * </label>
                                 <select class="form-control" id="TITPType" placeholder="">
                                   <option>耕種農業</option>
                                   <option>畜産農業</option>
@@ -224,7 +252,7 @@ return false;
                             </div>
                             <!--IF candidate is a  TITP display this-->
                             <div class="form-group">
-                                <label for="TITPGrade">日本で働いて何年目ですか？ * </label>
+                                <label for="TITPGrade">日本で働いて何年目ですか？(TITP only) * </label>
                                 <select class="form-control" id="TITPGrade" placeholder="">
                                   <option>1年 (TITP Grade 1)</option>
                                   <option>2年 (TITP Grade 2)</option>
@@ -253,6 +281,7 @@ return false;
                                 <label class="custom-control-label" for="NotInterested">興味ない(Not interested)</label>
                             </div>
                             <br>
+
                             <!--希望業界-->
                             <div class="form-group">
                                 <label for="TITPGrade">希望業界 * </label>
@@ -286,7 +315,7 @@ return false;
                             <label class="fieldlabels">Contact No.: *</label> <input type="text" name="phno" placeholder="Contact No." />
                             <!--Nationality-->
                             <div class="form-group">
-                                <label for="Nationality">Nationality * </label>
+                                <label for="Nationality">Nationality: * </label>
                                 <select class="form-control" id="Nationality" placeholder="">
                                   <option>All Country list</option>
                                   <option>Vietnam</option>
@@ -297,7 +326,7 @@ return false;
                             </div>
                             <!--Gender-->
                             <div class="form-group">
-                                <label for="Gender">Gender * </label>
+                                <label for="Gender">Gender: * </label>
                                 <select class="form-control" id="Gender" placeholder="">
                                   <option>Male</option>
                                   <option>Female</option>
@@ -306,15 +335,15 @@ return false;
                             <!--Birthdate-->
                             <div class="form-group"> 
                                 <!-- Date input -->
-                                <label class="control-label" for="date">Birth Date</label>
+                                <label class="control-label" for="date">Birth Date: *</label>
                                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
                             </div>
 
                             <label class="fieldlabels">Email: *</label> <input type="email" name="email" placeholder="Email Id" />
                             <!--SNS-->
                             <div class="d-inline form-group">
-                                <label for="SNSID">SNS ID * </label>
-                                <select class="form-control" id="SNSID" placeholder="">
+                                <label for="SNSID">SNS ID: </label>
+                                <select class="form-control" id="SNSID">
                                   <option>LineID</option>
                                   <option>Messenger ID</option>
                                   <option>Wechat</option>
@@ -340,13 +369,13 @@ return false;
                                     <h2 class="steps">Step 4 - 4</h2>
                                 </div>
                             </div> <br><br>
-                            <h2 class="blue-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                            <h2 class="blue-text text-center"><strong>THANK YOU !</strong></h2> <br>
                             <div class="row justify-content-center">
                                 <div class="col-3"> <img src="https://static.thenounproject.com/png/2592125-200.png" class="fit-image"> </div>
                             </div> <br><br>
                             <div class="row justify-content-center">
                                 <div class="col-7 text-center">
-                                    <h5 class="blue-text text-center">You Have Successfully Signed Up</h5>
+                                    <h5 class="blue-text text-center">You Have Successfully Registered!<br>We will contact you soon!</h5>
                                 </div>
                             </div>
                         </div>
