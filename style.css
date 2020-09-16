@@ -16,7 +16,7 @@ img {
   height: auto;
   width: 100%;
 /* even more control with max-width */
-  max-height:350px;
+  /*max-height:350px;*/
 }
 
 #heading {
