@@ -11,6 +11,14 @@ p {
     color: grey
 }
 
+/* responsive image */
+img {
+  height: auto;
+  width: 100%;
+/* even more control with max-width */
+  max-height:350px;
+}
+
 #heading {
     text-transform: uppercase;
     color: #1e74ff;
