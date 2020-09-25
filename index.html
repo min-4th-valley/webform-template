@@ -5,15 +5,6 @@
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>Connect Job WORKERS - Webform Registration</title>
-<title>Webform Registration</title>
-<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
-<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
-<!-- <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.css' rel='stylesheet'>  -->
-<link href="style.css" rel="stylesheet">
-                                
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -88,22 +79,14 @@
                 <form id="msform" class="needs-validation" novalidate>
                     <!-- progressbar -->
                     <ul id="progressbar">
-                        <li class="active" id="account"><strong>Step 1</strong></li>
-                        <li id="personal"><strong>Step 2</strong></li>
-                        <li id="payment"><strong>Step 3</strong></li>
-                        <!-- <li id="confirm"><strong>Step 4</strong></li> -->
                         <li class="active" id="step1"><strong>Step 1</strong></li>
                         <li id="step2"><strong>Step 2</strong></li>
                         <li id="step3"><strong>Step 3</strong></li>
-                        <li id="step4"><strong>Step 4</strong></li>
-                        <li id="step5"><strong>Step 5</strong></li>
-                        <li id="step6"><strong>Step 6</strong></li>
+                        <!-- <li id="confirm"><strong>Step 4</strong></li> -->
                     </ul>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div> <br> 
-                    <!-- fieldsets -->
-                    <!--step1-->
+                    </div> <br> <!-- fieldsets -->
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
@@ -162,76 +145,19 @@
                             <div class="form-group"> 
                                 <!-- Date input -->
                                 <label for="birth-date-input" class="fieldlabels">Birthdate: *</label>
-                                <input class="form-control" type="date" value="1990-01-01" id="birth-date-input">                          
-                            <div class="form-group">
-                                <label class="fieldlabels">日本語能力(JLPT) *</label>
-                                <select class="form-control" id="JLPT" placeholder="">
-                                  <option>なし</option>
-                                  <option>N5</option>
-                                  <option>N4</option>
-                                  <option>N3</option>
-                                  <option>N2</option>
-                                  <option>N1</option>
-                                </select>
-                            </div>
-                            <!--Nationality-->
-                            <div class="form-group">
-                                <label class="fieldlabels">Nationality: * </label>
-                                <select class="form-control" id="Nationality" required="">
-                                  <option>All Country list</option>
-                                  <option>Vietnam</option>
-                                  <option>Myanmar</option>
-                                  <option>Nepal</option>
-                                  
-                                </select>
+                                <input class="form-control" type="date" value="1990-01-01" id="birth-date-input">
                             </div>
 
                             <!--Gender-->
                             <div class="form-group">
                                 <label class="fieldlabels">Gender: * </label>
-                                <select class="form-control" id="Gender" required="">
+                                <select class="form-control" id="Gender" placeholder="">
                                   <option>Male</option>
                                   <option>Female</option>
                                 </select>
                             </div>
                             
                             <!--JLPT-->
-                            <!--Birthdate-->
-                            <div class="form-group"> 
-                                <!-- Date input -->
-                                <label for="birth-date-input" class="fieldlabels">Birthdate:</label>
-                                <input class="form-control" type="date" value="1990-01-01" id="birth-date-input">
-                            </div>
-
-                            <!--SNS-->
-                            <div class="form-group">
-                                <label class="fieldlabels">Social media ID: </label><br>
-                                <!-- <select class="form-control" id="Gender" required="">
-                                  <option value="LineID">LINE</option>
-                                  <option value="FacebookID">Facebook</option>
-                                  <option value="WechatID">Wechat</option>
-                                  <option value="OtherID">Other</option>
-                                </select> -->
-                                <div class="custom-control custom-radio custom-control-inline">
-                                  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadioInline1">LINE</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadioInline2">Facebook</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                  <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadioInline3">Wechat</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                  <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadioInline4">Other</label>
-                                </div>
-                                <input type="snsID" class="form-control" id="snsID" placeholder="Enter your social media ID">
-                            </div>
-
-                            <!--start live in Japan-->
                             <div class="form-group">
                                 <label class="fieldlabels">日本語能力(JLPT): *</label>
                                 <select class="form-control" id="JLPT" placeholder="">
@@ -260,17 +186,14 @@
                         </div> 
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
-
-                    <!--step2-->
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Current Residence:</h2>
+                                    <!-- <h2 class="fs-title">About You:</h2> -->
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Step 2 - 3</h2>
-                                    <h2 class="steps">Step 2 - 6</h2>
                                 </div>
                             </div> 
 
@@ -354,20 +277,6 @@
                                         <label for="example-date-input" class="fieldlabels">End Date:</label>
                                         <input class="form-control" type="date" id="workexp-date-input">
                                       </div>
-                            <!--END Current Residence-->
-                        </div> 
-                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset>
-
-                    <!--step3-->
-                    <fieldset>
-                        <div class="form-card">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Education</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 3 - 6</h2>
                                 </div>
                             </div>
 
@@ -569,20 +478,14 @@
                         </div> 
                         <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
-
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-
                                     <!-- <h2 class="fs-title"></h2> -->
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Step 3 - 3</h2>
-                                    <h2 class="fs-title">Industry Interest:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 4 - 6</h2>
                                 </div>
                             </div> 
                             
@@ -595,53 +498,6 @@
                     <!-- <fieldset>
                         <div class="form-card">
                             <div class="row">
-                            <!--希望業界-->
-                            <div class="form-group">
-                                <label class="fieldlabels">希望業界 (Preferred Industry) </label>
-                                <select class="form-control" id="preferredIndustry">
-                                  <option>介護業</option>
-                                  <option>ビルクリーニング業</option>
-                                  <option>素形材産業</option>
-                                  <option>産業機械製造業</option>
-                                  <option>電気・電子情報関連産業</option>
-                                  <option>More...</option>
-                                </select>
-                            </div>
-
-                            <!--preferred location-->
-                            <div class="form-group">
-                                <label class="fieldlabels">希望勤務地 (Preferred location) </label>
-                                <select class="form-control" id="preferredIndustry">
-                                  <option>47 prefectures list</option>
-                                  <option>Tokyo</option>
-                                  <option>Osaka</option>
-                                  <option>Fukuoka</option>
-                                  <option>Nagoya</option>
-                                  <option>Chiba</option>
-                                  <option>More...</option>
-                                </select>
-                            </div>
-                      </div>
-                        <input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        
-                    </fieldset>
-
-                    <!--step5-->
-                    <fieldset>
-                      <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Work Experience:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 5 - 6</h2>
-                                </div>
-                            </div> 
-                      <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset>
-
-                    <!--step6-->
-                    <fieldset>
-                      <div class="row">
                                 <div class="col-7">
                                     <h2 class="fs-title">Finish:</h2>
                                 </div>
@@ -653,10 +509,6 @@
                             EMPTY
                         </div>
                         <input type="button" name="next" class="next action-button" value="Submit" /> 
-                                    <h2 class="steps">Step 6 - 6</h2>
-                                </div>
-                            </div> 
-                      <input type="button" name="next" class="next action-button" value="Submit" /> 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset> -->
 
