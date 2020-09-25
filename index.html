@@ -4,132 +4,65 @@
 
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>Webform Registration</title>
-<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
-<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+<title>Connect Job WORKERS - Webform Registration</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
-                                
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+<!-- 
+<link href="css/normalize.css" rel="stylesheet" >
+<link href="css/owl.carousel.min.css" rel="stylesheet" >
+<link href="css/owl.theme.default.css" rel="stylesheet" >
+<link href="css/animations.css" rel="stylesheet" > -->
 
-<!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-<script type='text/javascript'>
-
-//Show hidden field script
-function yesnoCheck(that) {
-    if (that.value == "other") {
-  // alert("check");
-        document.getElementById("ifYes").style.display = "block";
-    } 
-    // else if (that.value == "yesinJapan"){
-
-    //     document.getElementById("ifyesinJapan").style.display = "block";
-    // }
-    // else if (that.value == "noinJapan"){
-
-    //   document.getElementById("ifnoinJapan").style.display = "block";
-    // }
-    else {
-        document.getElementById("ifYes").style.display = "none";
-    }
-}
-//end 
-
-//show hidden field script
-function yesnoCheckResidence(that){
-  if(that.value == "yesinJapan"){
-    document.getElementById("ifyesinJapan").style.display = "block";
-  }
-  else {
-    document.getElementById("ifnoinJapan").style.display = "none";
-  }
-
-}
-
-//scripts for this template
-$(document).ready(function(){
-
-var current_fs, next_fs, previous_fs; //fieldsets
-var opacity;
-var current = 1;
-var steps = $("fieldset").length;
-
-setProgressBar(current);
-
-$(".next").click(function(){
-
-current_fs = $(this).parent();
-next_fs = $(this).parent().next();
-
-//Add Class Active
-$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-//show the next fieldset
-next_fs.show();
-//hide the current fieldset with style
-current_fs.animate({opacity: 0}, {
-step: function(now) {
-// for making fielset appear animation
-opacity = 1 - now;
-
-current_fs.css({
-'display': 'none',
-'position': 'relative'
-});
-next_fs.css({'opacity': opacity});
-},
-duration: 500
-});
-setProgressBar(++current);
-});
-
-$(".previous").click(function(){
-
-current_fs = $(this).parent();
-previous_fs = $(this).parent().prev();
-
-//Remove class active
-$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-//show the previous fieldset
-previous_fs.show();
-
-//hide the current fieldset with style
-current_fs.animate({opacity: 0}, {
-step: function(now) {
-// for making fielset appear animation
-opacity = 1 - now;
-
-current_fs.css({
-'display': 'none',
-'position': 'relative'
-});
-previous_fs.css({'opacity': opacity});
-},
-duration: 500
-});
-setProgressBar(--current);
-});
-
-function setProgressBar(curStep){
-var percent = parseFloat(100 / steps) * curStep;
-percent = percent.toFixed();
-$(".progress-bar")
-.css("width",percent+"%")
-}
-
-$(".submit").click(function(){
-return false;
-})
-
-});</script>
 
 </head>
 <body oncontextmenu='return false' class='snippet-body'>
+
+<header class="animatedParent">
+      <div class="container animated fadeInDownShort">
+        <div class="row">
+          <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+<!--               <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#!">特定技能人材 <br>紹介サービス</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!">サービス利用 <br>までの流れ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!">実績</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!">ニュース</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!">特定技能とは</a>
+                  </li>
+                  <div class="mx-4"></div>
+                  <li class="nav-item">
+                    <a class="nav-link brdr" href="#!">お問い合わせ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link company-reg" href="#!">企業登録</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link support-reg" href="#!">支援機関登録</a>
+                  </li>
+                </ul>
+              </div> -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
@@ -495,5 +428,140 @@ return false;
         </div>
     </div>
 </div>
-                            </body>
-                        </html>
+<footer class="footer animatedParent">
+      <div class="container animated">
+        <img src="img/logo.png" class="footer-logo animated fadeInDownShort" alt="logo">
+<!--         <ul class="footer-links animated fadeInUpShort ">
+          <li><a href="#!">特定技能人材 紹介サービス</a></li>
+          <li><a href="#!">サービス利用 までの流れ</a></li>
+          <li><a href="#!">実績</a></li>
+          <li><a href="#!">ニュース</a></li>
+          <li><a href="#!">特定技能とは</a></li>
+          <li><a href="#!">お問い合わせ</a></li>
+          <li><a href="#!">利用規約</a></li>
+          <li><a href="#!">プライバシーポリシー</a></li>
+        </ul> -->
+        <p class="copyright-text animated fadeInDownShort">Copyright© 2020 Fourth Valley Concierge Corporation All Rights</p>
+      </div>
+    </footer>
+
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script type='text/javascript'>
+
+//Show hidden field script
+function yesnoCheck(that) {
+    if (that.value == "other") {
+  // alert("check");
+        document.getElementById("ifYes").style.display = "block";
+    } 
+    // else if (that.value == "yesinJapan"){
+
+    //     document.getElementById("ifyesinJapan").style.display = "block";
+    // }
+    // else if (that.value == "noinJapan"){
+
+    //   document.getElementById("ifnoinJapan").style.display = "block";
+    // }
+    else {
+        document.getElementById("ifYes").style.display = "none";
+    }
+}
+//end 
+
+//show hidden field script
+function yesnoCheckResidence(that){
+  if(that.value == "yesinJapan"){
+    document.getElementById("ifyesinJapan").style.display = "block";
+  }
+  else {
+    document.getElementById("ifnoinJapan").style.display = "none";
+  }
+
+}
+
+//scripts for this template
+$(document).ready(function(){
+
+var current_fs, next_fs, previous_fs; //fieldsets
+var opacity;
+var current = 1;
+var steps = $("fieldset").length;
+
+setProgressBar(current);
+
+$(".next").click(function(){
+
+current_fs = $(this).parent();
+next_fs = $(this).parent().next();
+
+//Add Class Active
+$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+//show the next fieldset
+next_fs.show();
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+next_fs.css({'opacity': opacity});
+},
+duration: 500
+});
+setProgressBar(++current);
+});
+
+$(".previous").click(function(){
+
+current_fs = $(this).parent();
+previous_fs = $(this).parent().prev();
+
+//Remove class active
+$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+//show the previous fieldset
+previous_fs.show();
+
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+previous_fs.css({'opacity': opacity});
+},
+duration: 500
+});
+setProgressBar(--current);
+});
+
+function setProgressBar(curStep){
+var percent = parseFloat(100 / steps) * curStep;
+percent = percent.toFixed();
+$(".progress-bar")
+.css("width",percent+"%")
+}
+
+$(".submit").click(function(){
+return false;
+})
+
+});</script>
+
+  </body>
+</html>
