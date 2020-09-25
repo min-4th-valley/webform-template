@@ -227,7 +227,7 @@ header {
 #progressbar li {
     list-style-type: none;
     font-size: 15px;
-    width: 25%;
+    width: 33%;
     float: left;
     position: relative;
     font-weight: 400
@@ -245,13 +245,13 @@ header {
 
 #progressbar #payment:before {
     font-family: FontAwesome;
-    content: "\f030"
-}
-
-#progressbar #confirm:before {
-    font-family: FontAwesome;
     content: "\f00c"
 }
+
+/*#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}*/
 
 #progressbar li:before {
     width: 50px;
