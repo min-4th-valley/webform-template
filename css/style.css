@@ -248,26 +248,6 @@ header {
     content: "\f00c"
 }
 
-/*#progressbar #confirm:before {
-=======
-    content: "\f054"
-}
-
-#progressbar #step4:before {
-    font-family: FontAwesome;
-    content: "\f054"
-}
-
-#progressbar #step5:before {
-    font-family: FontAwesome;
-    content: "\f054"
-}
-
-#progressbar #step6:before {
->>>>>>> master:style.css
-    font-family: FontAwesome;
-    content: "\f00c"
-}*/
 
 #progressbar li:before {
     width: 50px;
