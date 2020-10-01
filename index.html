@@ -162,25 +162,25 @@
                             <label class="fieldlabels">Social Media: * </label>
                             <br>
                             <div class="custom-control custom-radio custom-control-inline">
-                              <input type="radio" class="custom-control-input" id="lineAccount" name="lineAccount">
+                              <input type="radio" class="custom-control-input" id="defaultInline1" name="lineAccount">
                               <label class="custom-control-label" for="defaultInline1">LINE</label>
                             </div>
 
                             <!-- Default inline 2-->
                             <div class="custom-control custom-radio custom-control-inline">
-                              <input type="radio" class="custom-control-input" id="facebookAccount" name="facebookAccount">
+                              <input type="radio" class="custom-control-input" id="defaultInline2" name="facebookAccount">
                               <label class="custom-control-label" for="defaultInline2">Facebook</label>
                             </div>
 
                             <!-- Default inline 3-->
                             <div class="custom-control custom-radio custom-control-inline">
-                              <input type="radio" class="custom-control-input" id="wechatAccount" name="wechatAccount">
+                              <input type="radio" class="custom-control-input" id="defaultInline3" name="wechatAccount">
                               <label class="custom-control-label" for="defaultInline3">Wechat</label>
                             </div>
 
                             <!-- Default inline 4-->
                             <div class="custom-control custom-radio custom-control-inline">
-                              <input type="radio" class="custom-control-input" id="kakaoAccount" name="kakaoAccount">
+                              <input type="radio" class="custom-control-input" id="defaultInline4" name="kakaoAccount">
                               <label class="custom-control-label" for="defaultInline4">Kakao</label>
                             </div>
                             
@@ -234,13 +234,15 @@
                               <div id="ifYes" style="display: none;">
                                 
                                 <h6 class="fs-title">Visa Status</h6><hr>
-                                <label for="JLPT">What is your Visa Status? *</label>
+                                <label for="visaStatus">What is your Visa Status? *</label>
                                   <select class="form-control" id="visaType" onchange="checkVisaType(this);">
-                                    <option value="studentVisa">留学(Studying)</option>
-                                    <option value="notStudentVisa">特定技能(Specified Skill Worker)</option>
-                                    <option value="notStudentVisa">技人国(EHI)</option>
-                                    <option value="notStudentVisa">技能実習(TITP)</option>
-                                    <option value="notStudentVisa">その他(others)</option>
+                                    <option>留学(Studying)</option>
+                                    <option>特定技能(Specified Skill Worker)</option>
+                                    <option>技人国(EHI)</option>
+                                    <option>技能実習１号(TITP Grade 1)</option>
+                                    <option value="ifTITP2">技能実習２号(TITP Grade 2)</option>
+                                    <option>技能実習３号(TITP Grade 3)</option>
+                                    <option>その他(others)</option>
                                 </select>
 
                                 <div class="row">
@@ -257,8 +259,18 @@
                                 </div>
                               </div>
 
+                              <!--Not working-->
+                              <div id="ifyesTITP2" style="display: none;">
+                                <label for="passTITP3">Have you passed TITP Grade 3 exam? *</label>
+                                <select class="form-control" id="passTITP3" onchange="yesnoTITP3(this);">
+                                      <option>Please select</option>
+                                      <option>Yes, I have passed</option>
+                                      <option>No, I have not pass</option>
+                                    </select>
+                              </div>
+
                               <div id="ifnoinJapan" style="display: none;">
-                                <label for="JLPT">Have you ever resided in Japan? *</label>
+                                <label for="resideJapan">Have you ever resided in Japan? *</label>
                                   <select class="form-control" id="resideJapan" onchange="yesnoCheckResidence(this);">
                                     <option>Select Yes/No</option>
                                     <option value="yesinJapan">Yes</option>
@@ -270,7 +282,9 @@
                                     <option>留学(Studying)</option>
                                     <option>特定技能(Specified Skill Worker)</option>
                                     <option>技人国(EHI)</option>
-                                    <option>技能実習(TITP)</option>
+                                    <option>技能実習１号(TITP Grade 1)</option>
+                                    <option value="ifTITP2">技能実習２号(TITP Grade 2)</option>
+                                    <option>技能実習３号(TITP Grade 3)</option>
                                     <option>その他(others)</option>
                                   </select>
                                 </div>
@@ -280,7 +294,7 @@
                             <!--END Visa status in Japan-->
 
                             <!--Ask work experience in Japan-->
-                            <div id="ifnotStudentVisa" style="display: none;">
+                            <!-- <div id="ifnotStudentVisa" style="display: none;"> -->
                               <h6 class="fs-title">Work Experience</h6><hr>
                               <div class="form-group">
                                     <label class="fieldlabels">What industry are you working/worked?</label>
@@ -307,7 +321,7 @@
                                         <input class="form-control" type="date" id="workexp-date-input">
                                       </div>
                                 </div>
-                            </div>
+                            <!-- </div> -->
 
                             <!--END Ask work experience in Japan-->
 
@@ -633,6 +647,17 @@ function yesnoSSW(that){
   }
   else {
     document.getElementById("ifyesssw").style.display = "none";
+  }
+
+}
+
+//show hidden field script
+function yesnoTITP3(that){
+  if(that.value == "ifTITP2"){
+    document.getElementById("ifyesTITP2").style.display = "block";
+  }
+  else {
+    document.getElementById("ifyesTITP2").style.display = "none";
   }
 
 }
