@@ -390,8 +390,7 @@
                                   </div>
 
                                   <div class="form-group row">
-                                    <div class="col-3 fieldlabels">Graduated?</div>
-                                    <div class="col-0">
+                                    <div class="col-1">
                                       <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="graduated">
                                         <!-- <label class="form-check-label" for="gridCheck1">
@@ -399,6 +398,8 @@
                                         </label> -->
                                       </div>
                                     </div>
+                                    <div class="col-3 fieldlabels">Graduated?</div>
+                                    
                                   </div>
 
                                   <!--Check if study in Japan -->
@@ -453,8 +454,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                          <div class="col-3 fieldlabels">Graduated?</div>
-                                          <div class="col-0">
+                                          <div class="col-1">
                                             <div class="form-check">
                                               <input class="form-check-input" type="checkbox" id="graduated">
                                               <!-- <label class="form-check-label" for="gridCheck1">
@@ -462,6 +462,8 @@
                                               </label> -->
                                             </div>
                                           </div>
+                                          <div class="col-3 fieldlabels">Graduated?</div>
+                                          
                                         </div>
 
                                     </div>
@@ -502,58 +504,32 @@
                                     <select class="form-control" id="preferredIndustry">
                                       <option>合格しました(Test passed)</option>
                                       <option>申し込みしました(Test applied)</option>
-                                      <option>(Waiting for result)</option>
+                                      <option>結果待ちです(Waiting for result)</option>
                                       <option>興味あります(Interested in applying)</option>
                                     </select>
                                 </div>
                               </div>
                             </div>
 
+                            <!--Dynamically add row-->
+                            <div class="form-group" id="outerdiv"></div>
+                            <button type="button" class="btn btn-primary btn-sm">Add row</button>
                                 
                             </div>
-
-                            <!--If interested in SSW-->
-                            <div id="ifyesssw" style="display: none;">
-                              <div class="row">
-                              <div class="col-6">
-                                <!--希望業界-->
-                                <div class="form-group">
-                                    <label class="fieldlabels">SSW Industry</label>
-                                    <select class="form-control" id="preferredIndustry">
-                                      <option>介護業</option>
-                                      <option>ビルクリーニング業</option>
-                                      <option>素形材産業</option>
-                                      <option>産業機械製造業</option>
-                                      <option>電気・電子情報関連産業</option>
-                                      <option>More...</option>
-                                    </select>
-                                </div>
-                              </div>
-                              <div class="col-6">
-                                <!--SSW test status-->
-                                <div class="form-group">
-                                    <label class="fieldlabels">Test status</label>
-                                    <select class="form-control" id="preferredIndustry">
-                                      <option>合格しました(Already got)</option>
-                                      <option>申し込みしました(Applied)</option>
-                                      <option>興味あります(Interested in applying)</option>
-                                    </select>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <!--END If interested in SSW-->
-
-                          <br><br>
+                            
+                            <br>
                           <!--Start agree TC-->
-                          <div class="form-group row">
+                          <div class="form-group">
                             <div class="form-check">
-                              <input class="col-2 form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                              <label class="col-10 form-check-label" for="invalidCheck">Agree terms of use</label>
-                              <div class="invalid-feedback">
+                              <div class="row">
+                                <div class="col-1"> <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required></div>
+                              <div class="col-10"><label class="fieldlabels" for="invalidCheck">I agree to the terms of use and privacy policy</label></div>
+                              <!-- <div class="invalid-feedback">
                                 You must agree before submitting.
+                              </div> -->
                               </div>
                             </div>
+                              
                           </div>
                           <!--End agree TC-->
 
@@ -570,30 +546,15 @@
                                     <h2 class="steps">Step 3 - 3</h2>
                                 </div>
                             </div> 
-                            
-                            <h2 class="fs-title text-center">Thank you for submiting your registration!</h2>
+
+                            <div class="thankyou">
+                              <h2 class="fs-title text-center">Thank you for submiting your registration!</h2>
                             </div>
+                            
+                        </div>
 
                         <input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
-
-                    <!-- <fieldset>
-                        <div class="form-card">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Finish:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 4 - 4</h2>
-                                </div>
-                            </div> 
-                            <h5>For us to match you with better jobs, please fill up below</h5>
-                            EMPTY
-                        </div>
-                        <input type="button" name="next" class="next action-button" value="Submit" /> 
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset> -->
-
 
                 </form>
             </div>
@@ -679,44 +640,6 @@ function checkVisaType(that){
 
 }
 
-//show hidden field script
-function yesnoSSW(that){
-  if(that.value == "yesssw"){
-    document.getElementById("ifyesssw").style.display = "block";
-  }
-  else {
-    document.getElementById("ifyesssw").style.display = "none";
-  }
-
-}
-
-//show hidden field script
-// function yesnoTITP3(that){
-//   if(that.value == "ifTITP2"){
-//     document.getElementById("ifyesTITP2").style.display = "block";
-//   }
-//   else {
-//     document.getElementById("ifyesTITP2").style.display = "none";
-//   }
-
-// }
-
-//checkbox show hidden field script
-// var checkbox = $('#ssw_interested'),
-//     chShipBlock = $('#ifyesssw');
-
-// chShipBlock.hide();
-
-// checkbox.on('click', function() {
-//     if($(this).is(':checked')) {
-//       chShipBlock.show();
-//       chShipBlock.find('input').attr('required', true);
-//     } else {
-//       chShipBlock.hide();
-//       chShipBlock.find('input').attr('required', false);
-//     }
-// })
-
 
 //scripts for this template
 $(document).ready(function(){
@@ -793,6 +716,15 @@ $(".progress-bar")
 $(".submit").click(function(){
 return false;
 })
+
+//add button
+$("button").click(function(){
+            // $("p").prepend("<h1>This is a heading</h1>"); 
+            // alert("test");
+            $('<div id="innerdiv"><div class="row"><div class="col-6"><div class="form-group"><select class="form-control" id="preferredIndustry"><option>介護業</option><option>ビルクリーニング業</option><option>素形材産業</option><option>産業機械製造業</option><option>電気・電子情報関連産業</option><option>More...</option></select></div></div><div class="col-6"><div class="form-group"><select class="form-control" id="preferredIndustry"><option>合格しました(Test passed)</option><option>申し込みしました(Test applied)</option><option>結果待ちです(Waiting for result)</option><option>興味あります(Interested in applying)</option></select></div></div></div></div>').appendTo('#outerdiv');
+
+        });
+//add button end
 
 });</script>
 
