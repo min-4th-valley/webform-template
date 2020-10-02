@@ -64,7 +64,7 @@
         <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                 <!--start image-->
-                  <img src="character-resize.jpg" class="img-fluid" alt="character image">
+                  <img src="banner.png" class="img-fluid" alt="character image">
                   <br>
                   <!--end image-->
                 <h2 id="heading">日本でせいしゃいんで働けます！</h2>
@@ -156,7 +156,36 @@
                                   <option>Female</option>
                                 </select>
                             </div>
+
+                            <!--SNS-->
+                            <!-- Default inline 1-->
+                            <label class="fieldlabels">Social Media: * </label>
+                            <br>
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" class="custom-control-input" id="defaultInline1" name="lineAccount">
+                              <label class="custom-control-label" for="defaultInline1">LINE</label>
+                            </div>
+
+                            <!-- Default inline 2-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" class="custom-control-input" id="defaultInline2" name="facebookAccount">
+                              <label class="custom-control-label" for="defaultInline2">Facebook</label>
+                            </div>
+
+                            <!-- Default inline 3-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" class="custom-control-input" id="defaultInline3" name="wechatAccount">
+                              <label class="custom-control-label" for="defaultInline3">Wechat</label>
+                            </div>
+
+                            <!-- Default inline 4-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" class="custom-control-input" id="defaultInline4" name="kakaoAccount">
+                              <label class="custom-control-label" for="defaultInline4">Kakao</label>
+                            </div>
                             
+                            <input type="text" name="snsaccount" placeholder="Account ID" required/> 
+
                             <!--JLPT-->
                             <div class="form-group">
                                 <label class="fieldlabels">日本語能力(JLPT): *</label>
@@ -205,13 +234,15 @@
                               <div id="ifYes" style="display: none;">
                                 
                                 <h6 class="fs-title">Visa Status</h6><hr>
-                                <label for="JLPT">What is your Visa Status? *</label>
+                                <label class="fieldlabels" for="visaStatus">What is your Visa Status? *</label>
                                   <select class="form-control" id="visaType" onchange="checkVisaType(this);">
-                                    <option value="studentVisa">留学(Studying)</option>
-                                    <option value="notStudentVisa">特定技能(Specified Skill Worker)</option>
-                                    <option value="notStudentVisa">技人国(EHI)</option>
-                                    <option value="notStudentVisa">技能実習(TITP)</option>
-                                    <option value="notStudentVisa">その他(others)</option>
+                                    <option>留学(Studying)</option>
+                                    <option>特定技能(Specified Skill Worker)</option>
+                                    <option>技人国(EHI)</option>
+                                    <option>技能実習１号(TITP Grade 1)</option>
+                                    <option value="ifTITP2">技能実習２号(TITP Grade 2)</option>
+                                    <option>技能実習３号(TITP Grade 3)</option>
+                                    <option>その他(others)</option>
                                 </select>
 
                                 <div class="row">
@@ -228,8 +259,18 @@
                                 </div>
                               </div>
 
+                              <!--Not working-->
+                              <div id="ifyesTITP2" style="display: none;">
+                                <label class="fieldlabels" for="passTITP3">Have you passed TITP Grade 3 exam? *</label>
+                                <select class="form-control" id="passTITP3">
+                                      <option>Please select</option>
+                                      <option>Yes, I have passed</option>
+                                      <option>No, I have not pass</option>
+                                    </select>
+                              </div>
+
                               <div id="ifnoinJapan" style="display: none;">
-                                <label for="JLPT">Have you ever resided in Japan? *</label>
+                                <label for="resideJapan">Have you ever resided in Japan? *</label>
                                   <select class="form-control" id="resideJapan" onchange="yesnoCheckResidence(this);">
                                     <option>Select Yes/No</option>
                                     <option value="yesinJapan">Yes</option>
@@ -241,7 +282,9 @@
                                     <option>留学(Studying)</option>
                                     <option>特定技能(Specified Skill Worker)</option>
                                     <option>技人国(EHI)</option>
-                                    <option>技能実習(TITP)</option>
+                                    <option>技能実習１号(TITP Grade 1)</option>
+                                    <option>技能実習２号(TITP Grade 2)</option>
+                                    <option>技能実習３号(TITP Grade 3)</option>
                                     <option>その他(others)</option>
                                   </select>
                                 </div>
@@ -251,7 +294,7 @@
                             <!--END Visa status in Japan-->
 
                             <!--Ask work experience in Japan-->
-                            <div id="ifnotStudentVisa" style="display: none;">
+                            <!-- <div id="ifnotStudentVisa" style="display: none;"> -->
                               <h6 class="fs-title">Work Experience</h6><hr>
                               <div class="form-group">
                                     <label class="fieldlabels">What industry are you working/worked?</label>
@@ -262,6 +305,16 @@
                                       <option>産業機械製造業</option>
                                       <option>電気・電子情報関連産業</option>
                                       <option>More..</option>
+                                      <option>Others</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="fieldlabels">Employment Type</label>
+                                    <select class="form-control" id="employmentType">
+                                      <option>Part-time</option>
+                                      <option>Full-time</option>
+                                      <option>Intern</option>
                                       <option>Others</option>
                                     </select>
                                 </div>
@@ -278,7 +331,7 @@
                                         <input class="form-control" type="date" id="workexp-date-input">
                                       </div>
                                 </div>
-                            </div>
+                            <!-- </div> -->
 
                             <!--END Ask work experience in Japan-->
 
@@ -337,8 +390,7 @@
                                   </div>
 
                                   <div class="form-group row">
-                                    <div class="col-3 fieldlabels">Graduated?</div>
-                                    <div class="col-0">
+                                    <div class="col-1">
                                       <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="graduated">
                                         <!-- <label class="form-check-label" for="gridCheck1">
@@ -346,6 +398,8 @@
                                         </label> -->
                                       </div>
                                     </div>
+                                    <div class="col-3 fieldlabels">Graduated?</div>
+                                    
                                   </div>
 
                                   <!--Check if study in Japan -->
@@ -400,8 +454,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                          <div class="col-3 fieldlabels">Graduated?</div>
-                                          <div class="col-0">
+                                          <div class="col-1">
                                             <div class="form-check">
                                               <input class="form-check-input" type="checkbox" id="graduated">
                                               <!-- <label class="form-check-label" for="gridCheck1">
@@ -409,6 +462,8 @@
                                               </label> -->
                                             </div>
                                           </div>
+                                          <div class="col-3 fieldlabels">Graduated?</div>
+                                          
                                         </div>
 
                                     </div>
@@ -420,17 +475,13 @@
                             <!--SSW interest and Test status-->
 
                             <div class="form-group">
-                              <label class="fieldlabels">Are you interested in SSW?</label>
-                              <select class="form-control" id="sswInterest" onchange="yesnoSSW(this);">
+                              <label class="fieldlabels">Please select interested SSW industry:</label>
+                              <!-- <select class="form-control" id="sswInterest" onchange="yesnoSSW(this);">
                                       <option>Select Yes/No</option>
                                       <option value="yesssw">Yes</option>
                                       <option value="nossw">No</option>
-                              </select>
-                                
-                            </div>
+                              </select> -->
 
-                            <!--If interested in SSW-->
-                            <div id="ifyesssw" style="display: none;">
                               <div class="row">
                               <div class="col-6">
                                 <!--希望業界-->
@@ -451,27 +502,34 @@
                                 <div class="form-group">
                                     <label class="fieldlabels">Test status</label>
                                     <select class="form-control" id="preferredIndustry">
-                                      <option>合格しました(Already got)</option>
-                                      <option>申し込みしました(Applied)</option>
+                                      <option>合格しました(Test passed)</option>
+                                      <option>申し込みしました(Test applied)</option>
+                                      <option>結果待ちです(Waiting for result)</option>
                                       <option>興味あります(Interested in applying)</option>
                                     </select>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <!--END If interested in SSW-->
 
-                          <br><br>
+                            <!--Dynamically add row-->
+                            <div class="form-group" id="outerdiv"></div>
+                            <button type="button" class="btn btn-primary btn-sm">Add row</button>
+                                
+                            </div>
+                            
+                            <br>
                           <!--Start agree TC-->
-                          <div class="form-group row">
+                          <div class="form-group">
                             <div class="form-check">
-                              <input class="col-2 form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                              <label class="col-10 form-check-label" for="invalidCheck">Agree to terms and conditions
-                              </label>
-                              <div class="invalid-feedback">
+                              <div class="row">
+                                <div class="col-1"> <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required></div>
+                              <div class="col-10"><label class="fieldlabels" for="invalidCheck">I agree to the terms of use and privacy policy</label></div>
+                              <!-- <div class="invalid-feedback">
                                 You must agree before submitting.
+                              </div> -->
                               </div>
                             </div>
+                              
                           </div>
                           <!--End agree TC-->
 
@@ -488,30 +546,15 @@
                                     <h2 class="steps">Step 3 - 3</h2>
                                 </div>
                             </div> 
-                            
-                            <h2 class="fs-title text-center">Thank you for submiting your registration!</h2>
+
+                            <div class="thankyou">
+                              <h2 class="fs-title text-center">Thank you for submiting your registration!</h2>
                             </div>
+                            
+                        </div>
 
                         <input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
-
-                    <!-- <fieldset>
-                        <div class="form-card">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Finish:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 4 - 4</h2>
-                                </div>
-                            </div> 
-                            <h5>For us to match you with better jobs, please fill up below</h5>
-                            EMPTY
-                        </div>
-                        <input type="button" name="next" class="next action-button" value="Submit" /> 
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset> -->
-
 
                 </form>
             </div>
@@ -588,41 +631,14 @@ function yesnoStudyJapan(that){
 
 //show hidden field script
 function checkVisaType(that){
-  if(that.value == "notStudentVisa"){
-    document.getElementById("ifnotStudentVisa").style.display = "block";
+  if(that.value == "ifTITP2"){
+    document.getElementById("ifyesTITP2").style.display = "block";
   }
   else {
-    document.getElementById("ifnotStudentVisa").style.display = "none";
+    document.getElementById("ifyesTITP2").style.display = "none";
   }
 
 }
-
-//show hidden field script
-function yesnoSSW(that){
-  if(that.value == "yesssw"){
-    document.getElementById("ifyesssw").style.display = "block";
-  }
-  else {
-    document.getElementById("ifyesssw").style.display = "none";
-  }
-
-}
-
-//checkbox show hidden field script
-// var checkbox = $('#ssw_interested'),
-//     chShipBlock = $('#ifyesssw');
-
-// chShipBlock.hide();
-
-// checkbox.on('click', function() {
-//     if($(this).is(':checked')) {
-//       chShipBlock.show();
-//       chShipBlock.find('input').attr('required', true);
-//     } else {
-//       chShipBlock.hide();
-//       chShipBlock.find('input').attr('required', false);
-//     }
-// })
 
 
 //scripts for this template
@@ -700,6 +716,15 @@ $(".progress-bar")
 $(".submit").click(function(){
 return false;
 })
+
+//add button
+$("button").click(function(){
+            // $("p").prepend("<h1>This is a heading</h1>"); 
+            // alert("test");
+            $('<div id="innerdiv"><div class="row"><div class="col-6"><div class="form-group"><select class="form-control" id="preferredIndustry"><option>介護業</option><option>ビルクリーニング業</option><option>素形材産業</option><option>産業機械製造業</option><option>電気・電子情報関連産業</option><option>More...</option></select></div></div><div class="col-6"><div class="form-group"><select class="form-control" id="preferredIndustry"><option>合格しました(Test passed)</option><option>申し込みしました(Test applied)</option><option>結果待ちです(Waiting for result)</option><option>興味あります(Interested in applying)</option></select></div></div></div></div>').appendTo('#outerdiv');
+
+        });
+//add button end
 
 });</script>
 
