@@ -234,7 +234,7 @@
                               <div id="ifYes" style="display: none;">
                                 
                                 <h6 class="fs-title">Visa Status</h6><hr>
-                                <label for="visaStatus">What is your Visa Status? *</label>
+                                <label class="fieldlabels" for="visaStatus">What is your Visa Status? *</label>
                                   <select class="form-control" id="visaType" onchange="checkVisaType(this);">
                                     <option>留学(Studying)</option>
                                     <option>特定技能(Specified Skill Worker)</option>
@@ -261,8 +261,8 @@
 
                               <!--Not working-->
                               <div id="ifyesTITP2" style="display: none;">
-                                <label for="passTITP3">Have you passed TITP Grade 3 exam? *</label>
-                                <select class="form-control" id="passTITP3" onchange="yesnoTITP3(this);">
+                                <label class="fieldlabels" for="passTITP3">Have you passed TITP Grade 3 exam? *</label>
+                                <select class="form-control" id="passTITP3">
                                       <option>Please select</option>
                                       <option>Yes, I have passed</option>
                                       <option>No, I have not pass</option>
@@ -283,7 +283,7 @@
                                     <option>特定技能(Specified Skill Worker)</option>
                                     <option>技人国(EHI)</option>
                                     <option>技能実習１号(TITP Grade 1)</option>
-                                    <option value="ifTITP2">技能実習２号(TITP Grade 2)</option>
+                                    <option>技能実習２号(TITP Grade 2)</option>
                                     <option>技能実習３号(TITP Grade 3)</option>
                                     <option>その他(others)</option>
                                   </select>
@@ -305,6 +305,16 @@
                                       <option>産業機械製造業</option>
                                       <option>電気・電子情報関連産業</option>
                                       <option>More..</option>
+                                      <option>Others</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="fieldlabels">Employment Type</label>
+                                    <select class="form-control" id="employmentType">
+                                      <option>Part-time</option>
+                                      <option>Full-time</option>
+                                      <option>Intern</option>
                                       <option>Others</option>
                                     </select>
                                 </div>
@@ -463,12 +473,42 @@
                             <!--SSW interest and Test status-->
 
                             <div class="form-group">
-                              <label class="fieldlabels">Are you interested in SSW?</label>
-                              <select class="form-control" id="sswInterest" onchange="yesnoSSW(this);">
+                              <label class="fieldlabels">Please select interested SSW industry:</label>
+                              <!-- <select class="form-control" id="sswInterest" onchange="yesnoSSW(this);">
                                       <option>Select Yes/No</option>
                                       <option value="yesssw">Yes</option>
                                       <option value="nossw">No</option>
-                              </select>
+                              </select> -->
+
+                              <div class="row">
+                              <div class="col-6">
+                                <!--希望業界-->
+                                <div class="form-group">
+                                    <label class="fieldlabels">SSW Industry</label>
+                                    <select class="form-control" id="preferredIndustry">
+                                      <option>介護業</option>
+                                      <option>ビルクリーニング業</option>
+                                      <option>素形材産業</option>
+                                      <option>産業機械製造業</option>
+                                      <option>電気・電子情報関連産業</option>
+                                      <option>More...</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <!--SSW test status-->
+                                <div class="form-group">
+                                    <label class="fieldlabels">Test status</label>
+                                    <select class="form-control" id="preferredIndustry">
+                                      <option>合格しました(Test passed)</option>
+                                      <option>申し込みしました(Test applied)</option>
+                                      <option>(Waiting for result)</option>
+                                      <option>興味あります(Interested in applying)</option>
+                                    </select>
+                                </div>
+                              </div>
+                            </div>
+
                                 
                             </div>
 
@@ -509,8 +549,7 @@
                           <div class="form-group row">
                             <div class="form-check">
                               <input class="col-2 form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                              <label class="col-10 form-check-label" for="invalidCheck">Agree to terms and conditions
-                              </label>
+                              <label class="col-10 form-check-label" for="invalidCheck">Agree terms of use</label>
                               <div class="invalid-feedback">
                                 You must agree before submitting.
                               </div>
@@ -631,11 +670,11 @@ function yesnoStudyJapan(that){
 
 //show hidden field script
 function checkVisaType(that){
-  if(that.value == "notStudentVisa"){
-    document.getElementById("ifnotStudentVisa").style.display = "block";
+  if(that.value == "ifTITP2"){
+    document.getElementById("ifyesTITP2").style.display = "block";
   }
   else {
-    document.getElementById("ifnotStudentVisa").style.display = "none";
+    document.getElementById("ifyesTITP2").style.display = "none";
   }
 
 }
@@ -652,15 +691,15 @@ function yesnoSSW(that){
 }
 
 //show hidden field script
-function yesnoTITP3(that){
-  if(that.value == "ifTITP2"){
-    document.getElementById("ifyesTITP2").style.display = "block";
-  }
-  else {
-    document.getElementById("ifyesTITP2").style.display = "none";
-  }
+// function yesnoTITP3(that){
+//   if(that.value == "ifTITP2"){
+//     document.getElementById("ifyesTITP2").style.display = "block";
+//   }
+//   else {
+//     document.getElementById("ifyesTITP2").style.display = "none";
+//   }
 
-}
+// }
 
 //checkbox show hidden field script
 // var checkbox = $('#ssw_interested'),
